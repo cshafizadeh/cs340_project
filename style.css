@@ -1,0 +1,9 @@
+body {
+    margin: 0px;
+    background-color: orange;
+}
+
+.header {
+    display: flex;
+    width: 100vw;
+}
