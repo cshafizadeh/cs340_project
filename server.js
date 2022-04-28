@@ -1,62 +1,35 @@
 //run server with "node server.js"
 
-var fs = require("fs");
-var http = require('http');
-var PORT = 4000;
+const express = require('express');
+const exphbs = require('express-handlebars');
 
-var hdrData
-var idxData
-var cssData
-var pplData
+var peopleData = require('./peopleData.json');
+console.log(peopleData)
 
-var hdrData = fs.readFile('./header.html', 'utf8', function(err, data){
-	if(err){
-		throw err
-	}
-	hdrData = data
+const app = express()
+var PORT = 3000
+
+app.engine('handlebars', exphbs.engine({defaultLayout: 'main'}))
+app.set('view engine', 'handlebars')
+
+app.use(express.static('public'))
+
+app.get('/', function (req, res, next) {
+	res.status(200).sendFile(__dirname + '/public/index.html');
+});
+
+app.get('/people', (req, res, next) => {
+	res.status(200).render("peoplePage", {
+		peopleData
+	})
+	console.log("here")
+});
+
+app.get('/orders', (req, res, next) => {
+	console.log("here")
+	res.status(200).sendFile(__dirname + '/public/orders.html')
 })
 
-var indexData = fs.readFile('./index.html', 'utf8', function(err, data){
-	if(err){
-		throw err
-	}
-	idxData = data
-})
-
-var pplData = fs.readFile("./style.css", 'utf8', function(err, data){
-	if(err){
-		throw err
- 	}
-	cssData = data
-})
-
-var indexData = fs.readFile('./people.html', 'utf8', function(err, data){
-	if(err){
-		throw err
-	}
-	pplData = data
-})
-
-var server = http.createServer(function(req, res) {
-	if(req.url === "/"){
-		res.statusCode = 200
-		res.setHeader('Content-Type', 'text/html')
-        res.write(hdrData)
-		res.write(idxData)
-		res.end()
-		console.log("main page loaded")
-    }
-    else if(req.url === "/people"){
-        res.statusCode = 200
-		res.setHeader('Content-Type', 'text/html')
-        res.write(hdrData)
-		res.write(pplData)
-		res.end()
-		console.log("people page loaded")
-    }
-})
-
-
-server.listen(PORT, function() {
-	console.log(" == Server is listening on port " + PORT);	
+app.listen(PORT, function() {
+	console.log("server is listening on port " + PORT)
 })

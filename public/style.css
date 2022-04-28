@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+body {
+    background-color: #222831;
+    margin: 0px;
+}
+
+.header {
+    width: 96vw;
+    display: flex;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.title {
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+.names {
+    margin-top: 2vw;
+}
+
+.lable {
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    display: flex;
+}
+
+.fn {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.ln {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.person {
+    display: flex;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.first-name {
+    height: 5vw;
+    width: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 1px solid white;
+}
+    
+.last-name {
+    height: 5vw;
+    width: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 1px solid white;
+}
+
+.orders {
+    height: 3vw;
+    width: 10vw;
+    padding-top: 2vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 1px solid white;
+}
+
+.person a {
+    color: white;
+    text-decoration: none;
+}
+
+.people a:hover {
+    text-decoration: underline;
+}
+
+.add {
+    font-family: 'Work Sans', sans-serif;
+    color: white;
+    width: 95vw;
+    padding-left: 5vw;
+    padding-bottom: 3vw;
+    border-bottom: 2px solid white;
+}
