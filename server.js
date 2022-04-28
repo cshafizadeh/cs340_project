@@ -3,7 +3,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 
-var peopleData = require('./peopleData.json');
+var peopleData = require('./peopleData');
 console.log(peopleData)
 
 const app = express()

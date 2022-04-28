@@ -8,5 +8,15 @@
         "firstname": "bob",
         "lastname": "thompson",
         "cust-id": "2"
+    },
+    {
+        "firstname": "jack",
+        "lastname": "pearson",
+        "cust-id": "3"
+    },
+    {
+        "firstname": "mary",
+        "lastname": "jane",
+        "cust-id": "4"
     }
 ]
