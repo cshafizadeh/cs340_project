@@ -30,9 +30,11 @@ app.get('/orders/:person', (req, res, next) => {
 	res.status(200).render("orderPage", {
       	orderData
     })
+	console.log("order page called")
 })
                        
-app.get('/orders/items', (req, res, next) => {
+app.get('/items', (req, res, next) => {
+	console.log("items!")
 	res.status(200).render("itemPage", {
 		itemData
 	})

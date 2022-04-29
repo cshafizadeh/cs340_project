@@ -8,12 +8,12 @@ templates['orders'] = template({"compiler":[8,">= 4.3.0"],"main":function(contai
         return undefined
     };
 
-  return " <section class=\"person\">\n    <div class=\"order-number\">\n        "
-    + alias4(((helper = (helper = lookupProperty(helpers,"firstname") || (depth0 != null ? lookupProperty(depth0,"firstname") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"firstname","hash":{},"data":data,"loc":{"start":{"line":3,"column":8},"end":{"line":3,"column":21}}}) : helper)))
+  return " <section class=\"orders\">\n    <div class=\"order-number\">\n        "
+    + alias4(((helper = (helper = lookupProperty(helpers,"ordernum") || (depth0 != null ? lookupProperty(depth0,"ordernum") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"ordernum","hash":{},"data":data,"loc":{"start":{"line":3,"column":8},"end":{"line":3,"column":20}}}) : helper)))
     + "\n    </div>\n    <div class=\"order-date\">\n        "
-    + alias4(((helper = (helper = lookupProperty(helpers,"lastname") || (depth0 != null ? lookupProperty(depth0,"lastname") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"lastname","hash":{},"data":data,"loc":{"start":{"line":6,"column":8},"end":{"line":6,"column":20}}}) : helper)))
+    + alias4(((helper = (helper = lookupProperty(helpers,"orderdt") || (depth0 != null ? lookupProperty(depth0,"orderdt") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"orderdt","hash":{},"data":data,"loc":{"start":{"line":6,"column":8},"end":{"line":6,"column":19}}}) : helper)))
     + "\n    </div>\n    <div class=\"price\">\n        "
     + alias4(((helper = (helper = lookupProperty(helpers,"price") || (depth0 != null ? lookupProperty(depth0,"price") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"price","hash":{},"data":data,"loc":{"start":{"line":9,"column":8},"end":{"line":9,"column":17}}}) : helper)))
-    + "\n    </div>\n    <div class=\"items\">\n        <a href=\"items.html\">Items</a>\n    </div>\n</section>";
+    + "\n    </div>\n    <div class=\"items\">\n        <a href=\"/items\">Items</a>\n    </div>\n</section>";
 },"useData":true});
 })();

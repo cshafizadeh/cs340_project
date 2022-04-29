@@ -163,10 +163,11 @@ a {
 
 .item-desc {
     height: 5vw;
-    width: 10vw;
+    width: 40vw;
     padding-left: 5vw;
     padding-right: 5vw;
     border: 1px solid white;
+    font-size: 2vw;
 }
 
 a:hover {
