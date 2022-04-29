@@ -1,0 +1,21 @@
+
+<div class="content">
+    <div class="lable">
+        <div class="fn>
+            <h3>Item ID</h3>
+        </div>
+        <div class="ln">
+            <h3>Item Title</h3>
+        </div>
+        <div class="prc">
+            <h3>Item Description</h3>
+        </div>
+    </div>
+    <div id="items">
+        <div class="itemContainer">
+            {{#each itemData}}
+                {{>items}}
+            {{/each}}
+        </div>
+    </div>
+</div>
