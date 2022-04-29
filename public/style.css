@@ -11,9 +11,9 @@ a {
     font-family: 'Work Sans', sans-serif;
 }
 
-a:hover {
-    text-decoration: underline;
-}
+    a:hover {
+        text-decoration: underline;
+    }
 
 .header {
     width: 96vw;
@@ -48,7 +48,6 @@ a:hover {
 }
 
 
-
 .ln {
     margin-left: 5vw;
     margin-right: 5vw;
@@ -67,7 +66,7 @@ a:hover {
     padding-right: 5vw;
     border: 1px solid white;
 }
-    
+
 .last-name {
     height: 5vw;
     width: 10vw;
@@ -133,6 +132,30 @@ a:hover {
 }
 
 .items {
+    height: 5vw;
+    width: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 1px solid white;
+}
+
+.item-id {
+    height: 5vw;
+    width: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 1px solid white;
+}
+
+.item-title {
+    height: 5vw;
+    width: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 1px solid white;
+}
+
+.item-desc {
     height: 5vw;
     width: 10vw;
     padding-left: 5vw;

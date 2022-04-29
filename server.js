@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars');
 
 var peopleData = require('./peopleData');
 var orderData = require('./orderData');
+var itemData = require('./itemData');
 
 const app = express()
 var PORT = 3000
@@ -29,6 +30,13 @@ app.get('/orders/:person', (req, res, next) => {
 	res.status(200).render("orderPage", {
       	orderData
     })
+})
+                       
+app.get('/orders/items', (req, res, next) => {
+	res.status(200).render("itemPage", {
+		itemData
+	})
+	console.log("items page called")
 })
 
 app.listen(PORT, function() {
