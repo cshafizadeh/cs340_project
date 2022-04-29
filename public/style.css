@@ -42,6 +42,11 @@ a:hover {
     margin-right: 5vw;
 }
 
+.prc {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
 
 
 .ln {
@@ -101,4 +106,40 @@ a:hover {
 .Icontent {
     font-size: 5vw;
     padding-left: 3vw;
+}
+
+.order-number {
+    height: 5vw;
+    width: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 1px solid white;
+}
+
+.order-date {
+    height: 5vw;
+    width: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 1px solid white;
+}
+
+.price {
+    height: 5vw;
+    width: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 1px solid white;
+}
+
+.items {
+    height: 5vw;
+    width: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 1px solid white;
+}
+
+a:hover {
+    text-decoration: underline;
 }
