@@ -14,6 +14,6 @@ templates['orders'] = template({"compiler":[8,">= 4.3.0"],"main":function(contai
     + alias4(((helper = (helper = lookupProperty(helpers,"orderdt") || (depth0 != null ? lookupProperty(depth0,"orderdt") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"orderdt","hash":{},"data":data,"loc":{"start":{"line":6,"column":8},"end":{"line":6,"column":19}}}) : helper)))
     + "\n    </div>\n    <div class=\"price\">\n        "
     + alias4(((helper = (helper = lookupProperty(helpers,"price") || (depth0 != null ? lookupProperty(depth0,"price") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"price","hash":{},"data":data,"loc":{"start":{"line":9,"column":8},"end":{"line":9,"column":17}}}) : helper)))
-    + "\n    </div>\n    <div class=\"items\">\n        <a href=\"/items\">Items</a>\n    </div>\n</section>";
+    + "\n    </div>\n    <div class=\"items\">\n        <a href=\"/items\">Items</a>\n    </div>\n    <div class=\"delete\">\n        <button id=\"delete-order\">Delete</button>\n    </div>\n</section>";
 },"useData":true});
 })();

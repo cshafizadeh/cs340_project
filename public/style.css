@@ -3,12 +3,12 @@
 body {
     background-color: #222831;
     margin: 0px;
+    font-family: 'Work Sans', sans-serif;
 }
 
 a {
     color: white;
     text-decoration: none;
-    font-family: 'Work Sans', sans-serif;
 }
 
     a:hover {
@@ -19,7 +19,6 @@ a {
     width: 96vw;
     display: flex;
     color: white;
-    font-family: 'Work Sans', sans-serif;
 }
 
 .title {
@@ -33,7 +32,6 @@ a {
 
 .lable {
     color: white;
-    font-family: 'Work Sans', sans-serif;
     display: flex;
 }
 
@@ -56,13 +54,20 @@ a {
 .person {
     display: flex;
     color: white;
-    font-family: 'Work Sans', sans-serif;
 }
+
+.order {
+    padding: 0vw 5vw;
+    display: flex;
+    color: white;
+    border: 1px solid white;
+}
+
+
 
 .orders {
     display: flex;
     color: white;
-    font-family: 'Work Sans', sans-serif;
 }
 
 .first-name {
@@ -74,6 +79,14 @@ a {
 }
 
 .last-name {
+    height: 5vw;
+    width: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 1px solid white;
+}
+
+.cust_id {
     height: 5vw;
     width: 10vw;
     padding-left: 5vw;
@@ -95,12 +108,15 @@ a {
     text-decoration: none;
 }
 
+#people {
+    padding-left: 5vw;
+}
+
 .people a:hover {
     text-decoration: underline;
 }
 
 .add {
-    font-family: 'Work Sans', sans-serif;
     color: white;
     width: 95vw;
     padding-left: 5vw;
@@ -173,3 +189,71 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.search {
+    padding-left: 5vw;
+}
+
+.orderContainer {
+    padding-left: 5vw;
+}
+
+.add-order {
+    color: white;
+    padding-left: 5vw;
+}
+
+.add-order-container {
+    display: flex;
+}
+
+.add-order-container input{
+    height: 2vh;
+    width: 5vw;
+}
+
+.add-order-num {
+    padding: 1vw;;
+}
+
+.add-order-num input {
+    width: 15vw;
+}
+
+.add-order-num p {
+    width: 11vw;
+    margin: 0;
+    padding-left: 2vw;
+    font-size: 2vw;
+}
+
+.filter-input-container {
+    width: 15vw;
+    padding: 1vw;
+}
+
+.filter-input-label {
+    width: 11vw;
+    margin: 0;
+    margin-bottom: 2vw;
+    font-size: 2vw; 
+}
+
+.filter-input {
+    width: 15vw;
+}
+
+#search_submit {
+    width: 10vw;
+    height: 3vw;
+    margin: 3vh;
+}
+
+.delete {
+    height: 5vw;
+    width: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 1px solid white;
+}
+

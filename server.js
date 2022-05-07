@@ -27,11 +27,21 @@ app.get('/people', (req, res, next) => {
 });
 
 app.get('/orders/:person', (req, res, next) => {
-	res.status(200).render("orderPage", {
-      	orderData
-    })
-	console.log("order page called")
-})
+	var person = req.params.person.toLowerCase();
+	var personData = peopleData[person]
+	console.log("  -- personData:", personData)
+	if(personData){
+		
+		res.status(200).render("orderPage", {
+			//peopleData
+			orderData
+		})
+		console.log("order page called")
+	}
+	else {
+		next();
+	}
+});
                        
 app.get('/items', (req, res, next) => {
 	console.log("items!")
