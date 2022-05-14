@@ -190,6 +190,11 @@ a:hover {
     text-decoration: underline;
 }
 
+.description {
+	padding-left: 5vw;
+	color: white;
+}
+
 .search {
     padding-left: 5vw;
 }
