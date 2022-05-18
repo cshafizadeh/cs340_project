@@ -20,10 +20,19 @@ app.get('/', function (req, res, next) {
 });
 
 app.get('/people', (req, res, next) => {
+	var data = peopleData;
+	if (req.query.search != null) {
+		const search = req.query.search.toLowerCase();
+		data = peopleData.filter(person => {
+			const fullName = person.firstname + ' ' + person.lastname;
+			return person.firstname.toLowerCase() == search || person.lastname.toLowerCase() == search
+				|| fullName.toLowerCase() == search;
+		});
+	}
 	res.status(200).render("peoplePage", {
-		peopleData
+		filteredPeopleData: data
 	})
-	console.log("people page called")
+	console.log("people page called");
 });
 
 app.get('/orders/:person', (req, res, next) => {
