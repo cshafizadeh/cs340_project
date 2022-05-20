@@ -4,7 +4,7 @@
 		<h4>This is the people page, which displays all people who are customers of Beaver Clothing Company. You can search by customer name, add or remove customers or click on the order link to view customer orders.</h4>
 	</div>
     <div class="search">
-        <input type="text" placeholder="Search..."/>
+        <input type="text" id="searchFilter" placeholder="Search..."/>
         <button id="search_submit">Submit</button>
     </div>
     <div class="add">
@@ -27,7 +27,7 @@
     </div>
     <div id="people">
         <div class="peopleContainer">
-            {{#each peopleData}}
+            {{#each filteredPeopleData}}
             {{>person}}
             {{/each}}
         </div>
