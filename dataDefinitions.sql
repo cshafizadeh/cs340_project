@@ -80,19 +80,19 @@ insert into item(itemTitle, itemDesc)
     values('Beaver Stickers', 'Various Beaver Clothing Co stickers');
 
 insert into orderItem(quantity, itemId, orderId)
-    values(2, (select itemId from item where itemTitle='Beaver Hoodie'), (select orderId from `order`));
+    values(2, (select itemId from item where itemTitle='Beaver Hoodie'), (select orderId from `order` where orderId=1));
 
 insert into orderItem(quantity, itemId, orderId)
-    values(1, (select itemId from item where itemTitle='Beaver Polo'), (select orderId from `order`));
+    values(1, (select itemId from item where itemTitle='Beaver Polo'), (select orderId from `order` where orderId=5));
 
 insert into orderItem(quantity, itemId, orderId)
-    values(1, (select itemId from item where itemTitle='Beaver Hoodie'), (select orderId from `order`));
+    values(1, (select itemId from item where itemTitle='Beaver Hoodie'), (select orderId from `order` where orderId=1));
 
 insert into orderItem(quantity, itemId, orderId)
-    values(3, (select itemId from item where itemTitle='Beaver Stickers'), (select orderId from `order`));
+    values(3, (select itemId from item where itemTitle='Beaver Stickers'), (select orderId from `order` where orderId=7));
 
 insert into orderItem(quantity, itemId, orderId)
-    values(11, (select itemId from item where itemTitle='Beaver Cap'), (select orderId from `order`));
+    values(11, (select itemId from item where itemTitle='Beaver Cap'), (select orderId from `order` where orderId=4));
 
 ------------------------------------
 --================================
