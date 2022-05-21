@@ -16,8 +16,21 @@
     </div>
     <div id="items">
         <div class="itemContainer">
-            {{#each itemData}}
-                {{>items}}
+            {{#each item}}
+                <section class="person">
+                    <div class="item-id">
+                        {{itemId}}
+                    </div>
+                    <div class="item-title">
+                        {{itemTitle}}
+                    </div>
+                    <div class="item-desc">
+                    <p>{{itemDesc}}</p>
+                    </div>
+                    <div class="delete">
+                        <button id="delete-person">Delete</button>
+                    </div>
+                </section>
             {{/each}}
         </div>
     </div>

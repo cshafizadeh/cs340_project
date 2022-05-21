@@ -27,8 +27,24 @@
     </div>
     <div id="people">
         <div class="peopleContainer">
-            {{#each filteredPeopleData}}
-            {{>person}}
+            {{#each people}}
+                <section class="person">
+                    <div class="first-name">
+                        {{customerFirstName}}
+                    </div>
+                    <div class="last-name">
+                    {{customerLastName}}
+                    </div>
+                    <div class="cust_id">
+                    {{customerId}}
+                    </div>
+                    <div class="order">
+                        <a href="/orders">Orders</a>
+                    </div>
+                    <div class="delete">
+                        <button id="delete-person">Delete</button>
+                    </div>
+                </section>
             {{/each}}
         </div>
     </div>

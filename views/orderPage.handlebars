@@ -41,8 +41,24 @@
     </div>
     <div id="orders">
         <div class="orderContainer">
-            {{#each orderData}}
-                {{>orders}}
+            {{#each order}}
+                 <section class="orders">
+                    <div class="order-number">
+                        {{orderId}}
+                    </div>
+                    <div class="order-date">
+                        {{orderDate}}
+                    </div>
+                    <div class="price">
+                        {{customerId}}
+                    </div>
+                    <div class="items">
+                        <a href="/items">Items</a>
+                    </div>
+                    <div class="delete">
+                        <button id="delete-order">Delete</button>
+                    </div>
+                </section>
             {{/each}}
         </div>
     </div>
