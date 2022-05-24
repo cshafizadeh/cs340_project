@@ -9,24 +9,26 @@
     </div>
     <div class="add-order">
         <h3>Add Order</h3>
+        <form id="addOrder" action="/orders" method="post">
         <div class="add-order-container">
-            <div class="add-order-num">
-                <p>Order Num</p>
-                <input type="text"placeholder="Order Num"/>
-            </div>
             <div class="filter-input-container">
-                <label for="filter-city" class="filter-input-label">Add Item</label>
                 <div class="filter-input-element">
-                    <select id="order-item" class="filter-input" name="item-order">
-                    <option selected value="">Any</option>
-                    <option>Item 1</option>
-                    <option>Item 2</option>
-                    <option>Item 3</option>
-                    </select>
+                    Customer: <select name="customer"> 
+                        {{#each people}}
+                            <option value="{{customerId}}">{{customerFirstName}} {{customerLastName}}</option>
+                        {{/each}}
+                    </select><br>
+                    Item: <select name="item"> 
+                        {{#each item}}
+                            <option value="{{itemId}}">{{itemTitle}}</option>
+                        {{/each}}
+                    </select><br>
+                    Order Date: <input type="date" name="orderDate" placeholder="date" /><br>
                 </div>
             </div>
-            <button id="search_submit">Submit</button>
+            <input type="submit" value="submit" id='addOrderSubmit'>
         </div>
+        </form>
     </div>
     <div class="lable">
         <div class="fn">

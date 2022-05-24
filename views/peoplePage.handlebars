@@ -9,9 +9,13 @@
     </div>
     <div class="add">
         <h3>Add Person</h3>
-        <input type="text" id="firstname" placeholder="First Name">
-        <input type="text" id="lastname" placeholder="Last Name">
-        <button id="submit">Submit</button>
+        <form id="addperson" action="/people" method="post">
+            First name: <input type="text" name="customerFirstName"><br>
+            Last name: <input type="text" name="customerLastName"><br>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        <br/>
     </div>
 
     <div class="lable">

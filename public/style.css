@@ -143,6 +143,7 @@ a {
     padding-left: 5vw;
     padding-right: 5vw;
     border: 1px solid white;
+    font-size: .7rem;
 }
 
 .price {
@@ -214,7 +215,6 @@ a:hover {
 
 .add-order-container input{
     height: 2vh;
-    width: 5vw;
 }
 
 .add-order-num {
@@ -260,5 +260,19 @@ a:hover {
     padding-left: 5vw;
     padding-right: 5vw;
     border: 1px solid white;
+}
+
+#addOrderSubmit {
+    width: 10vw;
+    height: 3vw;
+}
+
+#addOrder {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-order-container {
+    flex-direction: column;
 }
 
