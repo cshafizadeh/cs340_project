@@ -5,7 +5,7 @@
 	</div>
     <div class="search">
         <input type="text" id="searchFilter" placeholder="Search..."/>
-        <button id="search_submit">Submit</button>
+        <button id="search_submit" onclick="applyFilter()">Submit</button>
     </div>
     <div class="add">
         <h3>Add Person</h3>
@@ -46,7 +46,7 @@
                         <a href="/orders">Orders</a>
                     </div>
                     <div class="delete">
-                        <button id="delete-person">Delete</button>
+                        <button onclick="delete_person({{customerId}})">Delete</button>
                     </div>
                 </section>
             {{/each}}

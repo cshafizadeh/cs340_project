@@ -10,7 +10,7 @@ create table if not exists `order` (
     orderId int(11) auto_increment not null primary key unique,
     orderDate date not null,
     customerId int(11),
-    foreign key (customerId) references customer(customerId)
+    foreign key (customerId) references customer(customerId) on delete cascade 
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 create table if not exists item (
@@ -23,8 +23,8 @@ create table if not exists orderItem (
     quantity int(11) not null,
     itemId int(11),
     orderId int(11),
-    foreign key (itemId) references item(itemId),
-    foreign key (orderId) references `order`(orderId)
+    foreign key (itemId) references item(itemId) on delete cascade 
+    foreign key (orderId) references `order`(orderId) on delete cascade 
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ------------------------------------

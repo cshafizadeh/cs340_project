@@ -54,7 +54,7 @@ module.exports = function(){
         }
     });
 
-    router.post('/orders', function(req, res){
+    router.post('/', function(req, res){
         console.log('OK', req.body.order)
         console.log(req.body)
         var mysql = req.app.get('mysql');

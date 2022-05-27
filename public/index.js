@@ -27,13 +27,22 @@ function submit_check() {
     }
 }
 
-document.getElementById('search_submit').addEventListener('click', applyFilter)
-
 function applyFilter() {
     var filter = document.getElementById('searchFilter').value.trim();
+    console.log("Filter: " + filter)
     if (!filter) {
         alert("You must fill in the searchbar!");
     } else {
         window.location.href = '/people?search=' + filter;
     }
+}
+
+function delete_person(custID) {
+    $.ajax({
+        url: '/people/' + custID,
+        type: 'DELETE',
+        success: function (result) {
+            window.location.reload(true);
+        }
+    })
 }
