@@ -14,7 +14,7 @@ module.exports = function(){
         });
     }
 
-    router.get('/people', function(req, res){
+    router.get('/', function(req, res){
         var callbackCount = 0;
         var context = {};
         //context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
