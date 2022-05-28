@@ -12,6 +12,7 @@ function createPerson(firstName, lastName){
 
 document.getElementById('submit').addEventListener('click', submit_check)
 
+
 function submit_check() {
 	var firstName = document.getElementById('firstname').value.trim();
     var lastName = document.getElementById('lastname').value.trim();
@@ -43,6 +44,21 @@ function delete_person(custID) {
         type: 'DELETE',
         success: function (result) {
             window.location.reload(true);
+        }
+    })
+}
+
+function delete_order(orderId) {
+    $.ajax({
+        url: '/orders/' + orderId,
+        type: 'DELETE',
+        success: function (result) {
+            if(result.responseText != undefined){
+                console.log(result.responseText)
+            }
+            else {
+                window.location.reload(true)
+            } 
         }
     })
 }
