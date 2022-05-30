@@ -67,7 +67,6 @@ module.exports = function(){
                 res.write(JSON.stringify(error));
                 res.end();
             }else{
-                console.log('why?')
                 res.redirect('/orders');
             }
         });

@@ -19,6 +19,7 @@ app.set('mysql', mysql);
 app.use('/items', require('./item'));
 app.use('/people', require('./people.js'));
 app.use('/orders', require('./order.js'));
+app.use('/detailsOrder', require('./orderItem.js'))
 app.use(express.static('public'))
 
 app.listen((port), function(){

@@ -276,3 +276,15 @@ a:hover {
     flex-direction: column;
 }
 
+.orderItem { 
+    color: white;
+    display: flex;
+}
+
+.quantity {
+    height: 5vw;
+    width: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 1px solid white;
+}
