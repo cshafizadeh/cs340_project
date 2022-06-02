@@ -28,13 +28,33 @@ function submit_check() {
     }
 }
 
-function applyFilter() {
+function applyPeopleFilter() {
     var filter = document.getElementById('searchFilter').value.trim();
     console.log("Filter: " + filter)
     if (!filter) {
         alert("You must fill in the searchbar!");
     } else {
         window.location.href = '/people?search=' + filter;
+    }
+}
+
+function applyOrderFilter() {
+    var filter = document.getElementById('searchFilter').value.trim();
+    console.log("Filter: " + filter)
+    if (!filter) {
+        alert("You must fill in the searchbar!");
+    } else {
+        window.location.href = '/orders?search=' + filter;
+    }
+}
+
+function applyItemFilter() {
+    var filter = document.getElementById('searchFilter').value.trim();
+    console.log("Filter: " + filter)
+    if (!filter) {
+        alert("You must fill in the searchbar!");
+    } else {
+        window.location.href = '/items?search=' + filter;
     }
 }
 
@@ -59,6 +79,36 @@ function delete_order(orderId) {
             else {
                 window.location.reload(true)
             } 
+        }
+    })
+}
+
+function delete_item(itemId) {
+    $.ajax({
+        url: '/items/' + itemId,
+        type: 'DELETE',
+        success: function (result) {
+            if (result.responseText != undefined) {
+                console.log(result.responseText)
+            }
+            else {
+                window.location.reload(true)
+            }
+        }
+    })
+}
+
+function delete_orderItem(orderId, itemId) {
+    $.ajax({
+        url: '/detailsOrder/' + orderId + "/" + itemId,
+        type: 'DELETE',
+        success: function (result) {
+            if (result.responseText != undefined) {
+                console.log(result.responseText)
+            }
+            else {
+                window.location.reload(true)
+            }
         }
     })
 }

@@ -16,17 +16,20 @@
     <div id="items">
         <div class="itemContainer">
             {{#each orderItem}}
-                <section class="orderItem">
-                    <div class="item-id">
-                        {{itemId}}
-                    </div>
-                    <div class="order-number">
-                        {{orderId}}
-                    </div>
-                    <div class="quantity">
+            <section class="orderItem">
+                <div class="item-id">
+                    {{itemId}}
+                </div>
+                <div class="order-number">
+                    {{orderId}}
+                </div>
+                <div class="quantity">
                     <p>{{quantity}}</p>
-                    </div>
-                </section>
+                </div>
+                <div class="delete">
+                    <button onclick="delete_orderItem({{orderId}},{{itemId}})">Delete</button>
+                </div>
+            </section>
             {{/each}}
         </div>
     </div>

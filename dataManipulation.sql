@@ -5,8 +5,8 @@ insert into customer(customerFirstName, customerLastName)
 
 -- Query for adding new item with colon : 
 -- character being used to denote the variables that will have data from the backend programming language 
-insert into item(itemTitle, itemDesc)
-    values(:itemTitleInput, itemDescInpur);
+insert into item(itemTitle, itemDesc, price)
+    values(:itemTitleInput, itemDescInput, priceInput);
 
 -- Query for adding new order with colon : 
 -- character being used to denote the variables that will have data from the backend programming language
