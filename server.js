@@ -5,7 +5,6 @@ const exphbs = require('express-handlebars');
 var mysql = require('./dbcon.js');
 var bodyParser = require('body-parser');
 
-var port = 3000;
 const app = express()
 var handlebars = require('express-handlebars').create({
 	defaultLayout:'main',
@@ -20,8 +19,9 @@ app.use('/items', require('./item.js'));
 app.use('/people', require('./people.js'));
 app.use('/orders', require('./order.js'));
 app.use('/detailsOrder', require('./orderItem.js'))
-app.use(express.static('public'))
+app.use(express.static('public'));
+app.set('port', process.argv[2]);
 
-app.listen((port), function(){
-	console.log('Express started on http://localhost:' + (port) + '; press Ctrl-C to terminate.');
+app.listen(app.get('port'), function () {
+	console.log("Server listing on port " + app.get('port') + " Press Ctrl+C to terminate.");
 });
