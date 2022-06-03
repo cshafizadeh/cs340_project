@@ -2,7 +2,6 @@ module.exports = function(){
     var express = require('express');
     var router = express.Router();
 
-    console.log('here?')
     function getItem(res, mysql, context, complete){
         mysql.pool.query("SELECT itemId, itemTitle, itemDesc FROM item", function(error, results, fields){
             if(error){
