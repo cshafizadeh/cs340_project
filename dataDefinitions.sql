@@ -1,5 +1,14 @@
 ---- Part A ----
 
+---- Drop existing tables to reset database ----
+
+DROP TABLE if exists orderItem;
+DROP TABLE if exists item;
+DROP TABLE if exists `order`;
+DROP TABLE if exists customer;
+
+---- Create tables if they don't exist' ----
+
 create table if not exists customer (
     customerId int(11) auto_increment not null primary key unique,
     customerFirstName varchar(255) not null,
@@ -16,6 +25,7 @@ create table if not exists `order` (
 create table if not exists item (
     itemId int(11) auto_increment not null primary key unique,
     itemTitle varchar(255) unique not null,
+    price decimal(10,2),
     itemDesc text
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -23,7 +33,7 @@ create table if not exists orderItem (
     quantity int(11) not null,
     itemId int(11),
     orderId int(11),
-    foreign key (itemId) references item(itemId) on delete cascade 
+    foreign key (itemId) references item(itemId) on delete cascade, 
     foreign key (orderId) references `order`(orderId) on delete cascade 
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -67,17 +77,17 @@ insert into `order`(orderDate, customerId)
 insert into `order`(orderDate, customerId)
     values('2020-12-13', (select customerId from customer where customerFirstName='Sally' and customerLastName='Thompson'));
 
-insert into item(itemTitle, itemDesc)
-    values('Beaver Hoodie', 'Black Beaver Clothing Hoodie');
+insert into item(itemTitle, itemDesc, price)
+    values('Beaver Hoodie', 'Black Beaver Clothing Hoodie', 50.99);
 
-insert into item(itemTitle, itemDesc)
-    values('Beaver Polo', 'Grey Beaver Clothing Polo');
+insert into item(itemTitle, itemDesc, price)
+    values('Beaver Polo', 'Grey Beaver Clothing Polo', 25.99);
 
-insert into item(itemTitle, itemDesc)
-    values('Beaver Cap', 'White Beaver Clothing Baseball Cap');
+insert into item(itemTitle, itemDesc, price)
+    values('Beaver Cap', 'White Beaver Clothing Baseball Cap', 15.95);
 
-insert into item(itemTitle, itemDesc)
-    values('Beaver Stickers', 'Various Beaver Clothing Co stickers');
+insert into item(itemTitle, itemDesc, price)
+    values('Beaver Stickers', 'Various Beaver Clothing Co stickers', 5.50);
 
 insert into orderItem(quantity, itemId, orderId)
     values(2, (select itemId from item where itemTitle='Beaver Hoodie'), (select orderId from `order` where orderId=1));
@@ -86,7 +96,7 @@ insert into orderItem(quantity, itemId, orderId)
     values(1, (select itemId from item where itemTitle='Beaver Polo'), (select orderId from `order` where orderId=5));
 
 insert into orderItem(quantity, itemId, orderId)
-    values(1, (select itemId from item where itemTitle='Beaver Hoodie'), (select orderId from `order` where orderId=1));
+    values(1, (select itemId from item where itemTitle='Beaver Cap'), (select orderId from `order` where orderId=1));
 
 insert into orderItem(quantity, itemId, orderId)
     values(3, (select itemId from item where itemTitle='Beaver Stickers'), (select orderId from `order` where orderId=7));

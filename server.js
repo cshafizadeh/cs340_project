@@ -16,7 +16,7 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/static', express.static('public'));
 app.set('mysql', mysql);
-app.use('/items', require('./item'));
+app.use('/items', require('./item.js'));
 app.use('/people', require('./people.js'));
 app.use('/orders', require('./order.js'));
 app.use('/detailsOrder', require('./orderItem.js'))

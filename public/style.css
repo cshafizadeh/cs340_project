@@ -40,6 +40,11 @@ a {
     margin-right: 5vw;
 }
 
+.desc {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
 .prc {
     margin-left: 5vw;
     margin-right: 5vw;
@@ -176,9 +181,19 @@ a {
     padding-left: 5vw;
     padding-right: 5vw;
     border: 1px solid white;
+    font-size: 1vw;
 }
 
 .item-desc {
+    height: 5vw;
+    width: 40vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 1px solid white;
+    font-size: 1vw;
+}
+
+.item-price {
     height: 5vw;
     width: 40vw;
     padding-left: 5vw;

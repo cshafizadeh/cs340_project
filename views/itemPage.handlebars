@@ -1,7 +1,11 @@
 <div class="content">
-	<div class="description">
-		<h4>"This is the item page, which displays all items purchased by a customer for each respective order."<h4>
-	</div>
+    <div class="description">
+        <h4>"This is the item page, which displays all items purchased by customers for each order."<h4>
+    </div>
+    <div class="search">
+        <input type="text" id="searchFilter" placeholder="Search..." />
+        <button id="search_item" onclick="applyItemFilter()">Submit</button>
+    </div>
     <div class="lable">
         <div class="fn">
             <h3>Item ID</h3>
@@ -9,27 +13,33 @@
         <div class="ln">
             <h3>Item Title</h3>
         </div>
-        <div class="prc">
+        <div class="desc">
             <h3>Item Description</h3>
+        </div>
+        <div class="prc">
+            <h3>Item Price</h3>
         </div>
     </div>
     <div id="items">
         <div class="itemContainer">
             {{#each item}}
-                <section class="person">
-                    <div class="item-id">
-                        {{itemId}}
-                    </div>
-                    <div class="item-title">
-                        {{itemTitle}}
-                    </div>
-                    <div class="item-desc">
+            <section class="person">
+                <div class="item-id">
+                    {{itemId}}
+                </div>
+                <div class="item-title">
+                    {{itemTitle}}
+                </div>
+                <div class="item-desc">
                     <p>{{itemDesc}}</p>
-                    </div>
-                    <div class="delete">
-                        <button id="delete-person">Delete</button>
-                    </div>
-                </section>
+                </div>
+                <div class="item-price">
+                    <p>{{price}}</p>
+                </div>
+                <div class="delete">
+                    <button onclick="delete_item({{itemId}})">Delete</button>
+                </div>
+            </section>
             {{/each}}
         </div>
     </div>

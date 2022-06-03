@@ -51,6 +51,26 @@ module.exports = function(){
             }
         }
     });
-    
+
+    router.delete('/:orderId/:itemId', function (req, res) {
+        console.log('param', req.params.orders);
+        console.log("Order Item Deleted: " + req.params.orderId + "/" + req.params.itemId);
+        var mysql = req.app.get('mysql');
+        var sql = "DELETE FROM `orderItem` WHERE orderId = ? AND itemId = ?";
+        var inserts = [req.params.orderId, req.params.itemId];
+        sql = mysql.pool.query(sql, inserts, function (error, results, fields) {
+            if (error) {
+                console.log('no good')
+                console.log(error)
+                res.write(JSON.stringify(error));
+                res.status(400);
+                res.end();
+            } else {
+                console.log('good');
+                res.status(202).end();
+            }
+        })
+    });
+
     return router;
 }();

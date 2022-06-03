@@ -2,7 +2,7 @@ module.exports = function(){
     var express = require('express');
     var router = express.Router();
 
-    function getOrder(res, mysql, context, complete){
+    function getAllOrders(res, mysql, context, complete){
         mysql.pool.query("SELECT orderId, orderDate, customerId FROM `order`", function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
@@ -12,6 +12,18 @@ module.exports = function(){
             console.log(results)
             complete();
         });
+    }
+
+    function searchOrders(res, mysql, context, complete, search) {
+        mysql.pool.query("SELECT orderId, orderDate, customerId FROM `order` WHERE orderId LIKE '" + search + "'", function (error, results, fields) {
+                if (error) {
+                    res.write(JSON.stringify(error));
+                    res.end();
+                }
+                context.order = results;
+                console.log(results)
+                complete();
+            });
     }
 
     function getItem(res, mysql, context, complete){
@@ -43,7 +55,15 @@ module.exports = function(){
         var context = {};
         //context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
         var mysql = req.app.get('mysql');
-        getOrder(res, mysql, context, complete);
+        if (req.query.search != null) {
+            const search = req.query.search.toLowerCase();
+            console.log("Searching for: " + search)
+            searchOrders(res, mysql, context, complete, search); 
+        }
+        else {
+            console.log("Get all orders called")
+            getAllOrders(res, mysql, context, complete);
+        }
         getItem(res, mysql, context, complete);
         getPeople(res, mysql, context, complete);
         console.log('boom')
