@@ -20,7 +20,7 @@ app.use('/people', require('./people.js'));
 app.use('/orders', require('./order.js'));
 app.use('/detailsOrder', require('./orderItem.js'))
 app.use(express.static('public'));
-app.set('port', process.argv[2]);
+app.set('port', 3000);
 
 app.listen(app.get('port'), function () {
 	console.log("Server listing on port " + app.get('port') + " Press Ctrl+C to terminate.");
