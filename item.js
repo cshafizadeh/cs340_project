@@ -2,9 +2,9 @@ module.exports = function(){
     var express = require('express');
     var router = express.Router();
 
-    function getAllItems(res, mysql, context, complete) {
-        mysql.pool.query("SELECT itemId, itemTitle, itemDesc, price FROM item", function (error, results, fields) {
-            if (error) {
+    function getAllItems(res, mysql, context, complete) { //function to get all items from database
+        mysql.pool.query("SELECT itemId, itemTitle, itemDesc, price FROM item", function (error, results, fields) { //SQL query to get items
+            if (error) { //checks if there is an error, if so error is logged
                 res.write(JSON.stringify(error));
                 res.end();
             }
@@ -14,9 +14,9 @@ module.exports = function(){
         });
     }
 
-    function searchItems(res, mysql, context, complete, search) {
+    function searchItems(res, mysql, context, complete, search) { //gets item based on specific itemId
         mysql.pool.query("SELECT itemId, itemTitle, itemDesc, price FROM item WHERE itemId LIKE '" + search + "'", function (error, results, fields) {
-            if (error) {
+            if (error) { //checks if there is an error, if so error is logged
                 res.write(JSON.stringify(error));
                 res.end();
             }
@@ -26,36 +26,35 @@ module.exports = function(){
         });
     }
 
-    router.get('/', function(req, res){
+    router.get('/', function(req, res){ //gets item data from database with functions and renders item page with data
         var callbackCount = 0;
         var context = {};
-        //context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
         var mysql = req.app.get('mysql');
         if (req.query.search != null) {
             const search = req.query.search.toLowerCase();
             console.log("Searching for: " + search)
-            searchItems(res, mysql, context, complete, search);
+            searchItems(res, mysql, context, complete, search); 
         }
         else {
             console.log("Get all items called")
-            getAllItems(res, mysql, context, complete);
+            getAllItems(res, mysql, context, complete); //gets items from getAllItems function
         }
         function complete(){
             callbackCount++;
             if(callbackCount >= 1){
-                res.render('itemPage', context);
+                res.render('itemPage', context); //renders item page with data
             }
         }
     });
 
-    router.delete('/:itemId', function (req, res) {
+    router.delete('/:itemId', function (req, res) { //deletes item based on itemId
         console.log('param', req.params.items);
         console.log("Item Deleted: " + req.params.itemId);
         var mysql = req.app.get('mysql');
-        var sql = "DELETE FROM item WHERE itemId = ?";
+        var sql = "DELETE FROM item WHERE itemId = ?"; //SQL query to delete item based on itemId
         var inserts = [req.params.itemId];
         sql = mysql.pool.query(sql, inserts, function (error, results, fields) {
-            if (error) {
+            if (error) { //checks if there is an error, if so error is logged
                 console.log('no good')
                 console.log(error)
                 res.write(JSON.stringify(error));

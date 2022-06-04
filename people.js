@@ -4,7 +4,7 @@ module.exports = function(){
 
     function getAllPeople(res, mysql, context, complete){ //retrieves data for all customers
         mysql.pool.query("SELECT customerId, customerFirstName, customerLastName FROM customer", function(error, results, fields){ //SQl query to select data for all customers
-            if(error){ //checks if there is an error in creating customer, if so error is logged
+            if(error){ //checks if there is an error, if so error is logged
                 res.write(JSON.stringify(error));
                 res.end();
             }
@@ -18,7 +18,7 @@ module.exports = function(){
         mysql.pool.query("SELECT customerId, customerFirstName, customerLastName FROM customer WHERE " 
             + "customerFirstName LIKE '" + search + "' OR customerLastName LIKE '" + search
             + "' OR CONCAT (customerFirstName,' ', customerLastName) LIKE '" + search + "'", function (error, results, fields) { //SQL query that finds specific customer if exists based on user input and sends it to the page
-            if (error) { //checks if there is an error in creating customer, if so error is logged
+            if (error) { //checks if there is an error, if so error is logged
                 res.write(JSON.stringify(error));
                 res.end();
             }
@@ -56,7 +56,7 @@ module.exports = function(){
         var sql = "INSERT INTO customer (customerFirstName, customerLastName) VALUES (?,?)"; //SQL query that creates a new customer
         var inserts = [req.body.customerFirstName, req.body.customerLastName];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
-            if(error){ //checks if there is an error in creating customer, if so error is logged
+            if(error){ //checks if there is an error, if so error is logged
                 console.log(JSON.stringify(error))
                 res.write(JSON.stringify(error));
                 res.end();
@@ -72,7 +72,7 @@ module.exports = function(){
         var sql = "DELETE FROM customer WHERE customerId = ?"; //SQL query to delete specific customer
         var inserts = [req.params.customerId];
         sql = mysql.pool.query(sql, inserts, function (error, results, fields) {
-            if (error) { //checks if there is an error in creating customer, if so error is logged
+            if (error) { //checks if there is an error in deleting customer, if so error is logged
                 console.log(error)
                 res.write(JSON.stringify(error));
                 res.status(400);

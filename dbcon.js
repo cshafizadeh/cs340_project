@@ -1,3 +1,4 @@
+//connects to database
 var mysql = require('mysql');
 var pool = mysql.createPool({
     connectionLimit : 10,

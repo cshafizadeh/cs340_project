@@ -2,9 +2,9 @@ module.exports = function(){
     var express = require('express');
     var router = express.Router();
 
-    function getAllOrders(res, mysql, context, complete){
-        mysql.pool.query("SELECT orderId, orderDate, customerId FROM `order`", function(error, results, fields){
-            if(error){
+    function getAllOrders(res, mysql, context, complete){ //gets data for all orders
+        mysql.pool.query("SELECT orderId, orderDate, customerId FROM `order`", function(error, results, fields){ //SQL query to get order information
+            if(error){ //checks if there is an error, if so error is logged
                 res.write(JSON.stringify(error));
                 res.end();
             }
@@ -14,9 +14,9 @@ module.exports = function(){
         });
     }
 
-    function searchOrders(res, mysql, context, complete, search) {
-        mysql.pool.query("SELECT orderId, orderDate, customerId FROM `order` WHERE orderId LIKE '" + search + "'", function (error, results, fields) {
-                if (error) {
+    function searchOrders(res, mysql, context, complete, search) { //finds order if  exists based on specific orderId
+        mysql.pool.query("SELECT orderId, orderDate, customerId FROM `order` WHERE orderId LIKE '" + search + "'", function (error, results, fields) { //SQL query to get specific order based on orderId
+                if (error) { //checks if there is an error, if so error is logged
                     res.write(JSON.stringify(error));
                     res.end();
                 }
@@ -26,9 +26,9 @@ module.exports = function(){
             });
     }
 
-    function getItem(res, mysql, context, complete){
-        mysql.pool.query("SELECT itemId, itemTitle, itemDesc FROM item", function(error, results, fields){
-            if(error){
+    function getItem(res, mysql, context, complete){ //function to get item data from database
+        mysql.pool.query("SELECT itemId, itemTitle, itemDesc FROM item", function(error, results, fields){ //SQL query to get all item data
+            if(error){ //checks if there is an error, if so error is logged
                 res.write(JSON.stringify(error));
                 res.end();
             }
@@ -38,9 +38,9 @@ module.exports = function(){
         });
     }
 
-    function getPeople(res, mysql, context, complete){
-        mysql.pool.query("SELECT customerId, customerFirstName, customerLastName FROM customer", function(error, results, fields){
-            if(error){
+    function getPeople(res, mysql, context, complete){ //function to get customer data from database
+        mysql.pool.query("SELECT customerId, customerFirstName, customerLastName FROM customer", function(error, results, fields){ //SQL query to get customer data
+            if(error){ //checks if there is an error, if so error is logged
                 res.write(JSON.stringify(error));
                 res.end();
             }
@@ -53,7 +53,6 @@ module.exports = function(){
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = {};
-        //context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
         var mysql = req.app.get('mysql');
         if (req.query.search != null) {
             const search = req.query.search.toLowerCase();
